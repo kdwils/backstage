@@ -54,5 +54,8 @@
     "*.{json,md}": [
       "prettier --write"
     ]
+  },
+  "dependencies": {
+    "@roadiehq/backstage-plugin-argo-cd": "^2.3.5"
   }
 }
