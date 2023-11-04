@@ -28,13 +28,7 @@ techdocs:
     runIn: "docker"
   publisher:
     type: "local"
-auth:
-  environment: development
-  providers:
-    github:
-      development:
-        clientId: ${AUTH_GITHUB_CLIENT_ID}
-        clientSecret: ${AUTH_GITHUB_CLIENT_SECRET}
+
 proxy:
   "/argocd/api":
     target: https://argocd.kyledev.co/api/v1/
@@ -44,3 +38,38 @@ proxy:
     headers:
       Cookie:
         $env: ARGOCD_AUTH_TOKEN
+
+auth:
+  environment: development
+  providers:
+    github:
+      development:
+        clientId: ${GITHUB_CLIENT_ID}
+        clientSecret: ${GITHUB_CLIENT_SECRET}
+
+argocd:
+  username: ${ARGOCD_USERNAME}
+  password: ${ARGOCD_PASSWORD}
+  appLocatorMethods:
+    - type: "config"
+      instances:
+        - name: argocd
+          url: https://argocd.kyledev.co
+          token: ${ARGOCD_AUTH_TOKEN}
+
+kubernetes:
+  serviceLocatorMethod:
+    type: "multiTenant"
+  clusterLocatorMethods:
+    - type: "config"
+      clusters:
+        - url: https://100.72.32.68:6443
+          name: homelab
+          authProvider: "serviceAccount"
+          skipTLSVerify: false
+          skipMetricsLookup: true
+          serviceAccount: backstage
+          customResources:
+            - group: "argoproj.io"
+              apiVersion: "v1alpha1"
+              plural: "rollouts"

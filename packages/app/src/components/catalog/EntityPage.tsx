@@ -58,6 +58,8 @@ import {
 import { TechDocsAddons } from '@backstage/plugin-techdocs-react';
 import { ReportIssue } from '@backstage/plugin-techdocs-module-addons-contrib';
 
+import { EntityGithubInsightsContent } from '@roadiehq/backstage-plugin-github-insights';
+
 const techdocsContent = (
   <EntityTechdocsContent>
     <TechDocsAddons>
@@ -129,28 +131,30 @@ import {
 const overviewContent = (
   <Grid container spacing={3} alignItems="stretch">
     {entityWarningContent}
-    <EntitySwitch>
-      <EntitySwitch.Case if={e => Boolean(isArgocdAvailable(e))}>
-        <Grid item sm={4}>
-          <EntityArgoCDOverviewCard />
-        </Grid>
-      </EntitySwitch.Case>
-    </EntitySwitch>
     <Grid item md={6}>
       <EntityAboutCard variant="gridItem" />
     </Grid>
-    <Grid item md={6} xs={12}>
-      <EntityCatalogGraphCard variant="gridItem" height={400} />
+    <Grid item sm={4}>
+      <EntitySwitch>
+        <EntitySwitch.Case if={e => Boolean(isArgocdAvailable(e))}>
+          <EntityArgoCDOverviewCard />
+        </EntitySwitch.Case>
+      </EntitySwitch>
     </Grid>
-
-    <Grid item md={4} xs={12}>
+    <Grid item sm={4}>
       <EntityLinksCard />
     </Grid>
-    <Grid item md={8} xs={12}>
+    {/* <Grid item md={6} xs={12}>
+      <EntityCatalogGraphCard variant="gridItem" height={400} />
+    </Grid> */}
+    {/* <Grid item md={8} xs={12}>
       <EntityHasSubcomponentsCard variant="gridItem" />
-    </Grid>
+    </Grid> */}
   </Grid>
 );
+
+import { EntityKubernetesContent } from '@backstage/plugin-kubernetes';
+
 
 const serviceEntityPage = (
   <EntityLayout>
@@ -187,6 +191,17 @@ const serviceEntityPage = (
     <EntityLayout.Route path="/docs" title="Docs">
       {techdocsContent}
     </EntityLayout.Route>
+
+    <EntityLayout.Route
+      path="/code-insights"
+      title="Code Insights">
+      <EntityGithubInsightsContent />
+    </EntityLayout.Route>
+
+    <EntityLayout.Route path="/kubernetes" title="Kubernetes">
+      <EntityKubernetesContent refreshIntervalMs={30000} />
+    </EntityLayout.Route>
+
   </EntityLayout>
 );
 
@@ -214,6 +229,17 @@ const websiteEntityPage = (
     <EntityLayout.Route path="/docs" title="Docs">
       {techdocsContent}
     </EntityLayout.Route>
+
+    <EntityLayout.Route
+      path="/code-insights"
+      title="Code Insights">
+      <EntityGithubInsightsContent />
+    </EntityLayout.Route>
+
+    <EntityLayout.Route path="/kubernetes" title="Kubernetes">
+      <EntityKubernetesContent refreshIntervalMs={30000} />
+    </EntityLayout.Route>
+
   </EntityLayout>
 );
 
