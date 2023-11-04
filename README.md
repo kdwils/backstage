@@ -1,10 +1,5 @@
+![sync status](https://argocd.kyledev.co/api/badge?name=backstage&revision=true)
+
 # [Backstage](https://backstage.io)
 
-This is your newly scaffolded Backstage App, Good Luck!
-
-To start the app, run:
-
-```sh
-yarn install
-yarn dev
-```
+Backstage is an open platform for building developer portals. This repo contains my homelab dev portal that was created for the purpose of a POC.
