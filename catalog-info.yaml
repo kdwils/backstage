@@ -2,10 +2,16 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: backstage
-  description: An example of a Backstage application.
+  description: backstage dev portal for my homelab
   annotations:
     argocd/app-name: backstage
+    github.com/project-slug: kdwils/backstage
+    backstage.io/kubernetes-id: backstage
+  links:
+    - url: https://backstage.kyledev.co
+      title: backstage
 spec:
   type: website
-  owner: john@example.com
-  lifecycle: experimental
+  lifecycle: production
+  owner: kdwils
+  system: homelab
