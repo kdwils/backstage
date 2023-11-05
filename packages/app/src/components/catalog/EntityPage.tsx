@@ -132,19 +132,25 @@ import {
 const overviewContent = (
   <Grid container spacing={3} alignItems="stretch">
     {entityWarningContent}
-    <Grid item md={6}>
-      <EntityAboutCard variant="gridItem" />
-    </Grid>
-    <Grid item sm={6}>
+    <Grid item sm={8}>
       <EntitySwitch>
         <EntitySwitch.Case if={e => Boolean(isArgocdAvailable(e))}>
           <EntityArgoCDOverviewCard />
-          <EntityArgoCDHistoryCard />
         </EntitySwitch.Case>
       </EntitySwitch>
     </Grid>
     <Grid item sm={4}>
       <EntityLinksCard />
+    </Grid>
+    <Grid item sm={8}>
+      <EntitySwitch>
+        <EntitySwitch.Case if={e => Boolean(isArgocdAvailable(e))}>
+          <EntityArgoCDHistoryCard />
+        </EntitySwitch.Case>
+      </EntitySwitch>
+    </Grid>
+    <Grid item md={4}>
+      <EntityAboutCard variant="gridItem" />
     </Grid>
     {/* <Grid item md={6} xs={12}>
       <EntityCatalogGraphCard variant="gridItem" height={400} />
