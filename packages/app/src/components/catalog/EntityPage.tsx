@@ -125,6 +125,7 @@ const entityWarningContent = (
 
 import {
   EntityArgoCDOverviewCard,
+  EntityArgoCDHistoryCard,
   isArgocdAvailable
 } from '@roadiehq/backstage-plugin-argo-cd';
 
@@ -134,10 +135,11 @@ const overviewContent = (
     <Grid item md={6}>
       <EntityAboutCard variant="gridItem" />
     </Grid>
-    <Grid item sm={4}>
+    <Grid item sm={6}>
       <EntitySwitch>
         <EntitySwitch.Case if={e => Boolean(isArgocdAvailable(e))}>
           <EntityArgoCDOverviewCard />
+          <EntityArgoCDHistoryCard />
         </EntitySwitch.Case>
       </EntitySwitch>
     </Grid>
@@ -154,7 +156,7 @@ const overviewContent = (
 );
 
 import { EntityKubernetesContent } from '@backstage/plugin-kubernetes';
-
+import { EntitySecurityInsightsContent } from '@roadiehq/backstage-plugin-security-insights';
 
 const serviceEntityPage = (
   <EntityLayout>
@@ -196,6 +198,12 @@ const serviceEntityPage = (
       path="/code-insights"
       title="Code Insights">
       <EntityGithubInsightsContent />
+    </EntityLayout.Route>
+
+    <EntityLayout.Route
+      path="/security-insights"
+      title="Security Insights">
+      <EntitySecurityInsightsContent />
     </EntityLayout.Route>
 
     <EntityLayout.Route path="/kubernetes" title="Kubernetes">
