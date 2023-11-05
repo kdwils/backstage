@@ -1,0 +1,14 @@
+kind: Kustomization
+apiVersion: kustomize.config.k8s.io/v1beta1
+
+resources:
+  - backstage.yaml
+  - sealed-secret.yaml
+  - namespace.yaml
+  - configmap.yaml
+  - rbac.yaml
+
+images:
+  - name: backstage
+    newName: ghcr.io/kdwils/backstage
+    newTag: main
