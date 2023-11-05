@@ -3,11 +3,11 @@ data:
   app-config.yaml: |
     app:
       title: kyledev.co
-      baseUrl: https://backstage.int.kyledev.co
+      baseUrl: http://backstage.backstage.svc.cluster.local:7007
     organization:
       name: kyledev.co
     backend:
-      baseUrl: https://backstage.int.kyledev.co
+      baseUrl: http://backstage.backstage.svc.cluster.local:7007
       csp:
         connect-src: ["'self'", 'http:', 'https:']
         img-src: ["'self'", "https: data:"]
@@ -21,7 +21,7 @@ data:
           user: ${POSTGRES_USER}
           password: ${POSTGRES_PASSWORD}
       cors:
-        origin: https://backstage.int.kyledev.co
+        origin: http://backstage.backstage.svc.cluster.local:7007
         methods: [GET, HEAD, PATCH, POST, PUT, DELETE]
         credentials: true
     integrations:
