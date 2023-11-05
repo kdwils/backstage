@@ -162,7 +162,6 @@ const overviewContent = (
 );
 
 import { EntityKubernetesContent } from '@backstage/plugin-kubernetes';
-import { EntitySecurityInsightsContent } from '@roadiehq/backstage-plugin-security-insights';
 
 const serviceEntityPage = (
   <EntityLayout>
@@ -204,12 +203,6 @@ const serviceEntityPage = (
       path="/code-insights"
       title="Code Insights">
       <EntityGithubInsightsContent />
-    </EntityLayout.Route>
-
-    <EntityLayout.Route
-      path="/security-insights"
-      title="Security Insights">
-      <EntitySecurityInsightsContent />
     </EntityLayout.Route>
 
     <EntityLayout.Route path="/kubernetes" title="Kubernetes">
