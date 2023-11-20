@@ -2156,13 +2156,13 @@
     zod "^3.21.4"
 
 "@backstage/catalog-client@^1.4.4", "@backstage/catalog-client@^1.4.5":
-  version "1.4.5"
-  resolved "https://registry.yarnpkg.com/@backstage/catalog-client/-/catalog-client-1.4.5.tgz#d104748fed1561ff6f6e77cb8de65e3b1182be9e"
-  integrity sha512-WiCJPbIYBjR8GQ7NBW+n0fA3fFfYEs1s+7aYjPsO1YmDHJJfy3CbjNWrpDeo3snEuEXzTN6QONr/cSsvB6n8PA==
+  version "1.4.6"
+  resolved "https://registry.yarnpkg.com/@backstage/catalog-client/-/catalog-client-1.4.6.tgz#35f6478879e921dd1ad939a60ba84f3515ee8ba9"
+  integrity sha512-3fXKI+Ht/r1eDJUsr7VSYSSqE3nVBTe0jBPsswf6stlUb34rR+I7GXnVaFIVWv3wPAZaG+PUShq3oTsGFE5lHA==
   dependencies:
     "@backstage/catalog-model" "^1.4.3"
     "@backstage/errors" "^1.2.3"
-    cross-fetch "^3.1.5"
+    cross-fetch "^4.0.0"
 
 "@backstage/catalog-model@^1.4.2", "@backstage/catalog-model@^1.4.3":
   version "1.4.3"
@@ -10649,6 +10649,13 @@ cross-fetch@^3.1.4, cross-fetch@^3.1.5:
   version "3.1.8"
   resolved "https://registry.yarnpkg.com/cross-fetch/-/cross-fetch-3.1.8.tgz#0327eba65fd68a7d119f8fb2bf9334a1a7956f82"
   integrity sha512-cvA+JwZoU0Xq+h6WkMvAUqPEYy92Obet6UdKLfW60qn99ftItKjB5T+BkyWOFWe2pUyfQ+IJHmpOTznqk1M6Kg==
+  dependencies:
+    node-fetch "^2.6.12"
+
+cross-fetch@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/cross-fetch/-/cross-fetch-4.0.0.tgz#f037aef1580bb3a1a35164ea2a848ba81b445983"
+  integrity sha512-e4a5N8lVvuLgAWgnCrLr2PP0YyDOTHa9H/Rj54dirp61qXnNq46m82bRhNqIA5VccJtWBvPTFRV3TtvHUKPB1g==
   dependencies:
     node-fetch "^2.6.12"
 
